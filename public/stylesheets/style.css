@@ -780,9 +780,6 @@ span p {
 }
 
 @media (max-width: 800px) {
-    .main-content {
-        top: 25%;
-    }
 
     .hr-btn {
         position: relative;
@@ -826,7 +823,7 @@ span p {
 
 @media (max-width: 650px) {
     .main-content {
-        top: 20%;
+        top: 50%;
         width: 100%;
     }
 

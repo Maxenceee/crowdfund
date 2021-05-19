@@ -25,8 +25,18 @@ const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-links');
 const navLinks = document.querySelectorAll('.nav-links li')
 
+const bgimage = document.querySelector('.bg-image')
+
 let pricesList = [5, 25, 75, 200]
 
+window.addEventListener("resize", () => {
+    checkForScreenSize()
+})
+
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("before appearing");
+    checkForScreenSize()
+});
 
 finishButton.forEach((element) => {
     element.addEventListener('click', () => {
@@ -106,6 +116,13 @@ bookmarkButton.addEventListener('click', () => {
         console.log('unbookmarked')
     }
 })
+function checkForScreenSize() {
+    if (document.body.clientWidth < 650) {
+        bgimage.src = './images/image-hero-mobile.jpg'
+    } else {
+        bgimage.src = './images/image-hero-desktop.jpg'
+    }
+}
 
 function openTanksWindow() {
     document.querySelector('.bg-modal').style.display = 'flex'

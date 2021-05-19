@@ -27,6 +27,7 @@ document.onreadystatechange = () => {
     if (document.readyState === 'complete') {
       console.log("juste appear")
       container.classList.remove("sign-up-mode");
+      clearTextflied()
     }
 };
 
@@ -38,7 +39,7 @@ sign_up_btn.addEventListener('click', () => {
 
 sign_in_btn.addEventListener('click', () => {
     container.classList.remove("sign-up-mode");
-    isSignUp = false
+    isSignUp = false    
     setTimeout(() => { clearTextflied() }, 1000);
 });
 
