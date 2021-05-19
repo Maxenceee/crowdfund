@@ -12,6 +12,7 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100%;
+    width: 100%;
     background-color: #FAFAFA;
 }
 
@@ -54,9 +55,9 @@ span p {
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
     z-index: 0;
+    display: block;
+    width: 100%;
 }
 
 .header-buttons {
@@ -772,9 +773,17 @@ span p {
     .header-buttons {
         width: 300px;
     }
+
+    .main-content {
+        top: 30%;
+    }
 }
 
 @media (max-width: 800px) {
+    .main-content {
+        top: 25%;
+    }
+
     .hr-btn {
         position: relative;
         margin-top: 8%;
@@ -817,6 +826,7 @@ span p {
 
 @media (max-width: 650px) {
     .main-content {
+        top: 20%;
         width: 100%;
     }
 
