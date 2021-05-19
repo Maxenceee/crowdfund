@@ -744,6 +744,7 @@ span p {
 }
 
 .toggle .line1{
+    transition: .4s;
     transform: rotate(-45deg) translate(-5px, 5px);
 }
 
@@ -754,6 +755,7 @@ span p {
 }
 
 .toggle .line3{
+    transition: .4s;
     transform: rotate(45deg) translate(-5px, -5px);
 }
 
