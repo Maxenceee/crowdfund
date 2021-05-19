@@ -744,7 +744,7 @@ span p {
 }
 
 .toggle .line1{
-    transform: rotate(-405deg) translate(-5px, 5px);
+    transform: rotate(-45deg) translate(-5px, 5px);
 }
 
 .toggle .line2{
@@ -754,7 +754,7 @@ span p {
 }
 
 .toggle .line3{
-    transform: rotate(405deg) translate(-5px, -5px);
+    transform: rotate(45deg) translate(-5px, -5px);
 }
 
 @media (min-width: 1300px) {
