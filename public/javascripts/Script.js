@@ -31,6 +31,9 @@ let pricesList = [5, 25, 75, 200]
 
 window.addEventListener("resize", () => {
     checkForScreenSize()
+    if (nav.style.transform == 'translateX(-100%)' && document.body.clientWidth > 650) {
+        nav.style.transform = 'translateX(0%)'
+    }
 })
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -247,7 +250,8 @@ function openSign() {
     //document.querySelector('.container').style.animation = 'showAnim 0.5s ease forwards';
     document.body.style.overflow = "hidden";
     document.body.style.height = "100%";
-    if (burger.style.display == 'block') {
+    console.log(burger.style)
+    if (burger.style.display != 'block' && document.body.clientWidth < 650) {
         nav.style.transform = 'translateX(-100%)'
         burger.classList.toggle('toggle');
     }

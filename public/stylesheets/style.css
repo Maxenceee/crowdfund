@@ -1298,7 +1298,11 @@ form.sign-up-form {
 
 @media (max-width: 870px){
     .container{
-        min-height: 90vh;
+        min-height: 65vh;
+    }
+
+    .title {
+        font-size: 1.5em;
     }
 
     .container:before{
