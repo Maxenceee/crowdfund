@@ -842,7 +842,7 @@ span p {
         align-items: center;
         width: 80%;
         transform: translateX(-100%);
-        transition: transform 0.5s ease-in;
+        transition: transform 0.3s ease-in;
         padding: 50px 0 50px;
         border-bottom-right-radius: 20px;
     }
@@ -1068,6 +1068,9 @@ span p {
     height: 100%;
     top: 0;
     left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .signin-signup {
@@ -1298,7 +1301,7 @@ form.sign-up-form {
 
 @media (max-width: 870px){
     .container{
-        min-height: 65vh;
+        min-height: 60vh;
     }
 
     .title {
