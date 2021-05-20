@@ -451,14 +451,15 @@ span p {
 
 .ms-content::-webkit-scrollbar { width: 0 !important }
 
-.close-button {
+.close-btn {
     position: absolute;
     right: 15px;
-    top: 10px;
-    font-size: 35px;
-    transform: rotate(45deg);
-    opacity: 0.5;
+    top: 15px;
+    width: 20px;
+    height: 20px;
+    opacity: 1;
     cursor: pointer;
+    z-index: 100;
 }
 
 .ms-head {
@@ -827,6 +828,13 @@ span p {
     }
 }
 
+@media (min-width: 650px) {
+    .close-sign-btn {
+        right: 35px;
+        top: 35px;
+    }
+}
+
 @media (max-width: 1300px) {
     .main-content {
         width: 80%;
@@ -1072,17 +1080,6 @@ span p {
     font-size: 1em;
     color: red;
     display: none;
-}
-
-.close-sign-btn {
-    position: absolute;
-    right: 35px;
-    top: 15px;
-    font-size: 35px;
-    transform: rotate(45deg);
-    opacity: 0.5;
-    z-index: 110;
-    cursor: pointer;
 }
 
 .sign-container {
