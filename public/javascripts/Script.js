@@ -231,7 +231,7 @@ function testValue(value, minValue, index) {
 
 function removeInputClass(index) {
     pledgeInput[index].classList.remove('input-ph')
-    pledgeInput[index].placeholder ="Enter your pledge"
+    pledgeInput[index].placeholder = "Enter your pledge"
 };
 
 document.querySelectorAll('.modal-present').forEach(element => {
