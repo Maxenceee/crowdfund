@@ -34,7 +34,7 @@ window.addEventListener("resize", () => {
     if (nav.style.transform == 'translateX(-100%)' && document.body.clientWidth > 650) {
         nav.style.transform = 'translateX(0%)'
     }
-})
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("before appearing");
@@ -48,8 +48,8 @@ finishButton.forEach((element) => {
             closeBackerWindow()
             openTanksWindow()
         }
-    })
-})
+    });
+});
 
 backerButton.addEventListener('click', () => {
     window.scroll(0, 0)
@@ -60,7 +60,7 @@ backerButton.addEventListener('click', () => {
             document.body.style.overflow = "hidden";
         }, 500);
     }
-})
+});
 
 pastilContainerView.forEach((element, index) => {
     element.addEventListener('click', () => {
@@ -75,36 +75,38 @@ pastilContainerView.forEach((element, index) => {
                     pledgeInput[index].classList.remove('input-ph')
                     pledgeInput[index].placeholder ="Enter your pledge"
                 }
-            })
+            });
             toggleOn(index)
         }
-    })  
+    });
 });
 
 rewardButton.forEach(element => {
     element.addEventListener('click', () => {
         window.scroll(0, 0)
         openTanksWindow()
-    })
-})
+    });
+});
 
 closeButton.addEventListener('click', () => {
     document.querySelector('.bg-modal').style.display = 'none';
     document.body.style.overflow = "initial";
-})
+});
 
 closeBacker.addEventListener('click', () => {
     closeBackerWindow()
     pastilIndicator.forEach((pastil, pindex) => {
         if (pastil.classList.contains('toggle-indicator')) {
             toggleOff(pindex)
-            msPrice[index].innerHTML = pricesList[index]
-            pledgeInput[index].classList.remove('input-ph')
-            pledgeInput[index].placeholder ="Enter your pledge"
+            msPrice[pindex].innerHTML = pricesList[pindex]
+            pledgeInput[pindex].classList.remove('input-ph')
+            pledgeInput[pindex].placeholder ="Enter your pledge"
         }
     })
-    document.querySelectorAll('.we-up').style.display = 'none'
-})
+    document.querySelectorAll('.we-up').forEach(e => {
+        e.style.display = 'none'
+    });
+});
 
 bookmarkButton.addEventListener('click', () => {
     if (bookmarkButton.style.flexDirection == 'row' || bookmarkButton.style.flexDirection == '') {
@@ -118,38 +120,40 @@ bookmarkButton.addEventListener('click', () => {
         document.querySelector('.bk-txt').innerHTML = "Bookmark";
         console.log('unbookmarked')
     }
-})
+});
+
 function checkForScreenSize() {
     if (document.body.clientWidth < 650) {
         bgimage.src = './images/image-hero-mobile.jpg'
     } else {
         bgimage.src = './images/image-hero-desktop.jpg'
     }
-}
+};
 
 function openTanksWindow() {
     document.querySelector('.bg-modal').style.display = 'flex'
     document.body.style.overflow = "hidden";
     document.body.style.height = "100%";
-}
+};
 
 function closeBackerWindow() {
     document.querySelector('.modal-selector').style.display = 'none'
     document.body.style.overflow = "initial";
-}
+};
 
 function toggleOff(pindex) {
     pastilIndicator[pindex].classList.toggle('toggle-indicator')
     pastilContainerView[pindex].classList.toggle('toggle-border')
     vlViewTextField[pindex].classList.toggle('toggle-indicator')
     console.log('removed', pindex)
-}
+};
+
 function toggleOn(index) {
     pastilIndicator[index].classList.toggle('toggle-indicator')
     pastilContainerView[index].classList.toggle('toggle-border')
     vlViewTextField[index].classList.toggle('toggle-indicator')
     console.log('clicked', index)
-}
+};
 
 function PLInpute() {
     pledgeInput.forEach((element, index) => {
@@ -164,8 +168,8 @@ function PLInpute() {
         } else {
             console.log(`Element is not focused.`);
         }
-    })
-}
+    });
+};
 
 document.addEventListener("keyup", function(event) {
     if (event.key === 'Enter') {
@@ -181,7 +185,7 @@ document.addEventListener("keyup", function(event) {
             } else {
                 console.log('Element is not focused.');
             }
-        })
+        });
     }
 });
 
@@ -206,8 +210,8 @@ function checkPriceValue(value, index) {
             break;
         default:
             break;
-    }
-}
+    };
+};
 
 function testValue(value, minValue, index) {
     if (value >= minValue) {
@@ -219,12 +223,12 @@ function testValue(value, minValue, index) {
         pledgeInput[index].placeholder = `Must be more than ${minValue}`;
         msPrice[index].innerHTML = minValue;
     }
-}
+};
 
 function removeInputClass(index) {
     pledgeInput[index].classList.remove('input-ph')
     pledgeInput[index].placeholder ="Enter your pledge"
-}
+};
 
 document.querySelectorAll('.modal-present').forEach(element => {
     element.addEventListener("click", (evt) => {
@@ -243,7 +247,7 @@ document.querySelectorAll('.modal-present').forEach(element => {
         console.log("Clicked outside!")
         closeBackerWindow()
     });
-})
+});
 
 function openSign() {
     signContainer.style.display = 'flex';
@@ -255,20 +259,20 @@ function openSign() {
         nav.style.transform = 'translateX(-100%)'
         burger.classList.toggle('toggle');
     }
-}
+};
 
 function closeSign() {
     signContainer.style.display = 'none'
     document.body.style.overflow = "initial";
-}
+};
 
 closeSignBtn.addEventListener('click', () => {
     closeSign()
-})
+});
 
 signBtn.addEventListener('click', () => {
     openSign()
-})
+});
 
 const navSlide = () => {
     burger.addEventListener('click', () => {
@@ -284,6 +288,6 @@ const navSlide = () => {
 
         burger.classList.toggle('toggle');
     });
-}
+};
 
 navSlide();

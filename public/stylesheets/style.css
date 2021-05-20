@@ -779,6 +779,10 @@ span p {
     .main-content {
         top: 30%;
     }
+
+    .ms-content {
+        width: 80%;
+    }
 }
 
 @media (max-width: 800px) {
@@ -826,6 +830,10 @@ span p {
 @media (max-width: 650px) {
     .main-content {
         top: 50%;
+        width: 100%;
+    }
+
+    .ms-content {
         width: 100%;
     }
 
