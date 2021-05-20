@@ -47,7 +47,6 @@ $(document).ready(function(){
 finishButton.forEach((element) => {
     element.addEventListener('click', () => {
         if (document.querySelector('.bg-modal').style.display == '' || document.querySelector('.bg-modal').style.display == 'none') {
-            window.scroll(0, 0)
             closeBackerWindow()
             openTanksWindow()
         }
@@ -89,8 +88,17 @@ pastilContainerView.forEach((element, index) => {
 
 rewardButton.forEach(element => {
     element.addEventListener('click', () => {
-        window.scroll(0, 0)
-        openTanksWindow()
+        if (document.body.clientWidth > 650) {
+            if (backerView.style.display == '' || backerView.style.display == 'none') {
+                backerView.style.display = 'flex'
+                setTimeout(() => { 
+                    document.body.style.height = "100%"
+                    document.body.style.overflow = "hidden";
+                }, 500);
+            }
+        } else {
+            window.location.href="/users";
+        }
     });
 });
 

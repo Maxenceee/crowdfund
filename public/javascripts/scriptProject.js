@@ -7,6 +7,7 @@ const rewardButton = document.querySelectorAll('.sub-card-button')
 const pledgeInput = document.querySelectorAll('.pledge-input')
 const msPrice = document.querySelectorAll('.ms-price')
 const finishButton = document.querySelectorAll('.ms-vl-button')
+const closeButton = document.querySelector('.check-cf')
 
 let pricesList = [5, 25, 75, 200]
 
@@ -40,8 +41,13 @@ pastilContainerView.forEach((element, index) => {
 
 finishButton.forEach((element) => {
     element.addEventListener('click', () => {
-        backTomain()
+        document.querySelector('.ms-content').style.display = 'none'
+        openTanksWindow()
     });
+});
+
+closeButton.addEventListener('click', () => {
+    backTomain()
 });
 
 function toggleOff(pindex) {
@@ -131,4 +137,10 @@ function testValue(value, minValue, index) {
 function removeInputClass(index) {
     pledgeInput[index].classList.remove('input-ph')
     pledgeInput[index].placeholder = "Enter your pledge"
+};
+
+function openTanksWindow() {
+    document.querySelector('.bg-modal').style.display = 'flex'
+    document.body.style.overflow = "hidden";
+    document.body.style.height = "100%";
 };
