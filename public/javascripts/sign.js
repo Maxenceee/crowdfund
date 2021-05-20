@@ -16,18 +16,29 @@ const wrongIndicator = document.querySelectorAll('.we-up')
 
 const inputs = document.querySelectorAll('.SIU-tf')
 
+const closeSignBtn = document.querySelector('.close-sign-btn')
+
 var usernames = ['maxence'];
 var passwords = ['-1402147925'];
 var emails = ["maxence.gama@gmail.com"];
 
 var isSignUp = false
 
+var isSmallScreen = false
+
+function backTomain() {
+    window.location.href="/#";
+}
 
 document.onreadystatechange = () => {
     if (document.readyState === 'complete') {
       console.log("juste appear")
       container.classList.remove("sign-up-mode");
       clearTextflied()
+      if (document.body.clientWidth < 650) {
+        isSmallScreen = true
+    }
+    console.log('isSmallScreen:', isSmallScreen)
     }
 };
 
@@ -42,6 +53,14 @@ sign_in_btn.addEventListener('click', () => {
     isSignUp = false    
     setTimeout(() => { clearTextflied() }, 1000);
 });
+
+closeSignBtn.addEventListener('click', () => {
+    if (isSmallScreen == true) {
+        backTomain()
+    } else {
+        closeSign()
+    }
+})
 
 function clearTextflied() {
     usernames_field.value = ''
@@ -98,7 +117,11 @@ function signinUser() {
             if (passwords[i] == password_field.value.hashCode()) {
                 console.log("granted")
                 //window.open("https://google.com", "_blank")
-                closeSign()
+                if (isSmallScreen == true) {
+                    backTomain()
+                } else {
+                    closeSign()
+                }
             } else {
                 console.log("password or username incorrect")
                 wrongIndicator[0].style.display = 'flex'
@@ -138,7 +161,11 @@ function signupUser() {
                 passwords.push(password_field_S.value.hashCode());
                 emails.push(email_field.value);
                 console.log(usernames, passwords, emails)
-                closeSign()
+                if (isSmallScreen == true) {
+                    backTomain()
+                } else {
+                    closeSign()
+                }
                 //window.open("https://google.com", "_blank")
             }
         }
@@ -161,10 +188,10 @@ String.prototype.hashCode = function() {
 };
 
 function closeSign() {
-    document.querySelector('.sign-container').style.display = 'none'
-    document.body.style.overflow = "initial";
     container.classList.remove("sign-up-mode");
     clearTextflied()
+    document.querySelector('.sign-container').style.display = 'none'
+    document.body.style.overflow = "initial";
 }
 
 function ValidateEmail(mail) {

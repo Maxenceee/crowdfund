@@ -19,7 +19,6 @@ const msPrice = document.querySelectorAll('.ms-price')
 
 const signBtn = document.querySelector('.sign-btn')
 const signContainer = document.querySelector('.sign-container')
-const closeSignBtn = document.querySelector('.close-sign-btn')
 
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-links');
@@ -254,25 +253,20 @@ document.querySelectorAll('.modal-present').forEach(element => {
 });
 
 function openSign() {
-    signContainer.style.display = 'flex';
-    //document.querySelector('.container').style.animation = 'showAnim 0.5s ease forwards';
-    document.body.style.overflow = "hidden";
-    document.body.style.height = "100%";
-    console.log(burger.style)
-    if (burger.style.display != 'block' && document.body.clientWidth < 650) {
-        nav.style.transform = 'translateX(-100%)'
-        burger.classList.toggle('toggle');
+    if (document.body.clientWidth > 650) {
+        signContainer.style.display = 'flex';
+        //document.querySelector('.container').style.animation = 'showAnim 0.5s ease forwards';
+        document.body.style.overflow = "hidden";
+        document.body.style.height = "100%";
+        console.log(burger.style)
+        if (burger.style.display != 'block' && document.body.clientWidth < 650) {
+            nav.style.transform = 'translateX(-100%)'
+            burger.classList.toggle('toggle');
+        }
+    } else {
+        window.location.href="/sign";
     }
 };
-
-function closeSign() {
-    signContainer.style.display = 'none'
-    document.body.style.overflow = "initial";
-};
-
-closeSignBtn.addEventListener('click', () => {
-    closeSign()
-});
 
 signBtn.addEventListener('click', () => {
     openSign()
