@@ -11,6 +11,16 @@ const closeButton = document.querySelector('.check-cf')
 
 let pricesList = [5, 25, 75, 200]
 
+if (window.performance) {
+    console.info("window.performance works fine on this browser");
+    console.info(performance.navigation.type);
+    if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+        console.info( "This page is reloaded" );
+        backTomain()
+    } else {
+        console.info( "This page is not reloaded");
+    }
+}
 
 document.querySelector('.close-button').addEventListener('click', () => {
     backTomain()
