@@ -27,13 +27,13 @@ var isSignUp = false
 var isSmallScreen = false
 
 if (window.performance) {
-    console.info("window.performance works fine on this browser");
-    console.info(performance.navigation.type);
+    //console.info("window.performance works fine on this browser");
+    //console.info(performance.navigation.type);
     if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
-        console.info( "This page is reloaded" );
+        //console.info( "This page is reloaded" );
         backTomain()
     } else {
-        console.info( "This page is not reloaded");
+        //console.info( "This page is not reloaded");
     }
 }
 
@@ -43,13 +43,13 @@ function backTomain() {
 
 document.onreadystatechange = () => {
     if (document.readyState === 'complete') {
-      console.log("juste appear")
+      //console.log("juste appear")
       container.classList.remove("sign-up-mode");
       clearTextflied()
       if (document.body.clientWidth < 650) {
         isSmallScreen = true
     }
-    console.log('isSmallScreen:', isSmallScreen)
+    //console.log('isSmallScreen:', isSmallScreen)
     }
 };
 
@@ -98,7 +98,7 @@ document.addEventListener("keyup", function(event) {
 function SIUInpute() {
     inputs.forEach((element, index) => {
         if (element === document.activeElement) {
-            console.log('Element has focus!');
+            //console.log('Element has focus!');
             switch (isSignUp) {
                 case true:
                     wrongIndicator[1].style.display = 'none'
@@ -106,7 +106,7 @@ function SIUInpute() {
                     wrongIndicator[0].style.display = 'none'
             }
         } else {
-            console.log('Element is not focused.');
+            //console.log('Element is not focused.');
         }
     })
 }
@@ -116,7 +116,7 @@ login_btn.addEventListener('click', () => {
 })
 
 signup_btn.addEventListener('click', () => {
-    console.log("u:", usernames_field_S.value, "p:", password_field_S.value, "e:", email_field.value)
+    //console.log("u:", usernames_field_S.value, "p:", password_field_S.value, "e:", email_field.value)
     signupUser()
 })
 
@@ -126,7 +126,7 @@ function signinUser() {
         if (usernames[i] == usernames_field.value) {
             //console.log("did")
             if (passwords[i] == password_field.value.hashCode()) {
-                console.log("granted")
+                //console.log("granted")
                 //window.open("https://google.com", "_blank")
                 if (isSmallScreen == true) {
                     backTomain()
@@ -134,12 +134,12 @@ function signinUser() {
                     closeSign()
                 }
             } else {
-                console.log("password or username incorrect")
+                //console.log("password or username incorrect")
                 wrongIndicator[0].style.display = 'flex'
-                console.log(passwords[i], password_field.value.hashCode())
+                //console.log(passwords[i], password_field.value.hashCode())
             }
         } else {
-            console.log("not found")
+            //console.log("not found")
             wrongIndicator[0].style.display = 'flex'
         }
     }
@@ -150,28 +150,28 @@ function signupUser() {
         for (var i in usernames) {
             if (usernames[i] == usernames_field_S.value) { //check if user already registered
                 if (passwords[i] == password_field_S.value) {
-                    console.log("already registered");
+                    //console.log("already registered");
                     wrongIndicator[1].innerHTML = 'You are already registered'
                     wrongIndicator[1].style.display = 'flex'
                 } else {
-                    console.log("username already used")
+                    //console.log("username already used")
                     wrongIndicator[1].innerHTML = 'Username unavailable'
                     wrongIndicator[1].style.display = 'flex'
                 }
             } else if (emails[i] == email_field.value) { //check if mail already used
-                console.log("mail already used");
+                //console.log("mail already used");
                 wrongIndicator[1].innerHTML = 'This email is used with another account'
                 wrongIndicator[1].style.display = 'flex'
             } else if (ValidateEmail(email_field.value) == false) {
-                console.log("wrong email");
+                //console.log("wrong email");
                 wrongIndicator[1].innerHTML = 'Incorrect email address'
                 wrongIndicator[1].style.display = 'flex'
             } else {            
-                console.log(ValidateEmail(email_field.value))
+                //console.log(ValidateEmail(email_field.value))
                 usernames.push(usernames_field_S.value);
                 passwords.push(password_field_S.value.hashCode());
                 emails.push(email_field.value);
-                console.log(usernames, passwords, emails)
+                //console.log(usernames, passwords, emails)
                 if (isSmallScreen == true) {
                     backTomain()
                 } else {
@@ -181,7 +181,7 @@ function signupUser() {
             }
         }
     } else {
-        console.log("missing one at least");
+        //console.log("missing one at least");
         wrongIndicator[1].innerHTML = 'You need to fill all the field'
         wrongIndicator[1].style.display = 'flex'
     }

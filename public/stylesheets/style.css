@@ -1067,12 +1067,6 @@ span p {
 *   Sign-in/up container
 */
 
-@keyframes showAnim {
-    100% {
-        transform: scale(100%);
-    }
-}
-
 .we-up {
     text-align: center;
     font-size: 1em;
@@ -1111,7 +1105,17 @@ span p {
     overflow: hidden;
     border-radius: 80px;
     border: solid 1px rgba(0, 0, 0, 0.5);
-    /*transform: scale(0%);*/
+}
+
+
+@media (min-width: 650px) {
+    .container {
+        transform: scale(0, 0);
+    }
+
+    .sign-container {
+        opacity: 0;
+    }
 }
 
 .container:before {
@@ -1487,3 +1491,14 @@ form.sign-up-form {
     }
 }
 
+@keyframes showAnim {
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes opacityAnim {
+    100% {
+        opacity: 1;
+    }
+}

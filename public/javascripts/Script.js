@@ -36,7 +36,7 @@ window.addEventListener("resize", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("before appearing");
+    //console.log("before appearing");
     checkForScreenSize()
 });
 
@@ -63,14 +63,14 @@ backerButton.addEventListener('click', () => {
             }, 500);
         }
     } else {
-        window.location.href="/users";
+        window.location.href="/project";
     }
 });
 
 pastilContainerView.forEach((element, index) => {
     element.addEventListener('click', () => {
         if (pastilIndicator[index].classList.contains('toggle-indicator')) {
-            console.log('already toggle')
+            //console.log('already toggle')
             //toggleOff(index)
         } else {
             pastilIndicator.forEach((pastil, pindex) => {
@@ -97,7 +97,7 @@ rewardButton.forEach(element => {
                 }, 500);
             }
         } else {
-            window.location.href="/users";
+            window.location.href="/project";
         }
     });
 });
@@ -127,12 +127,14 @@ bookmarkButton.addEventListener('click', () => {
         bookmarkButton.style.flexDirection = 'row-reverse'
         document.querySelector('.bk-txt').style.color = "#137972"
         document.querySelector('.bk-txt').innerHTML = "Bookmarked";
-        console.log('bookmarked')
+        //document.getElementById('bk-logo circle').style.fill = 'red'
+        //console.log('bookmarked')
     } else {
         bookmarkButton.style.flexDirection = 'row'
         document.querySelector('.bk-txt').style.color = "#717171"
         document.querySelector('.bk-txt').innerHTML = "Bookmark";
-        console.log('unbookmarked')
+        //document.getElementById('bk-logo circle').style.fill = 'blue'
+        //console.log('unbookmarked')
     }
 });
 
@@ -159,20 +161,20 @@ function toggleOff(pindex) {
     pastilIndicator[pindex].classList.toggle('toggle-indicator')
     pastilContainerView[pindex].classList.toggle('toggle-border')
     vlViewTextField[pindex].classList.toggle('toggle-indicator')
-    console.log('removed', pindex)
+    //console.log('removed', pindex)
 };
 
 function toggleOn(index) {
     pastilIndicator[index].classList.toggle('toggle-indicator')
     pastilContainerView[index].classList.toggle('toggle-border')
     vlViewTextField[index].classList.toggle('toggle-indicator')
-    console.log('clicked', index)
+    //console.log('clicked', index)
 };
 
 function PLInpute() {
     pledgeInput.forEach((element, index) => {
         if (element === document.activeElement) {
-            console.log('Element has focus!');
+            //console.log('Element has focus!');
             if (!isNaN(element.value)) {
                 msPrice[index].innerHTML = element.value
                 if (element.value == "") {
@@ -180,7 +182,7 @@ function PLInpute() {
                 }
             }
         } else {
-            console.log(`Element is not focused.`);
+            //console.log(`Element is not focused.`);
         }
     });
 };
@@ -189,7 +191,7 @@ document.addEventListener("keyup", function(event) {
     if (event.key === 'Enter') {
         pledgeInput.forEach((element, index) => {
             if (element === document.activeElement) {
-                console.log('Element has focus!');
+                //console.log('Element has focus!');
                 if (isNaN(element.value)) {
                     element.value = ""
                 } else {
@@ -197,7 +199,7 @@ document.addEventListener("keyup", function(event) {
                     element.value = ""
                 }
             } else {
-                console.log('Element is not focused.');
+                //console.log('Element is not focused.');
             }
         });
     }
@@ -206,20 +208,20 @@ document.addEventListener("keyup", function(event) {
 function checkPriceValue(value, index) {
     switch (index) {
         case 0:
-            console.log('current index 1', index)
-            console.log('no limit', value)
+            //console.log('current index 1', index)
+            //console.log('no limit', value)
             msPrice[index].innerHTML = value;
             break;
         case 1:
-            console.log('current index 2', index)
+            //console.log('current index 2', index)
             testValue(value, 25, index)
             break;
         case 2:
-            console.log('current index 3', index)
+            //console.log('current index 3', index)
             testValue(value, 75, index)
             break;
         case 3:
-            console.log('current index 4', index)
+            //console.log('current index 4', index)
             testValue(value, 200, index)
             break;
         default:
@@ -229,7 +231,7 @@ function checkPriceValue(value, index) {
 
 function testValue(value, minValue, index) {
     if (value >= minValue) {
-        console.log(`upper than ${minValue}`, value)
+        //console.log(`upper than ${minValue}`, value)
         msPrice[index].innerHTML = value;
         removeInputClass(index)
     } else {
@@ -251,29 +253,26 @@ document.querySelectorAll('.modal-present').forEach(element => {
     
         do {
             if (targetElement == flyoutElement) {
-                console.log("Clicked inside!")
+                //console.log("Clicked inside!")
                 return;
             }
             // Go up the DOM
             targetElement = targetElement.parentNode;
         } while (targetElement);
         
-        console.log("Clicked outside!")
+        //console.log("Clicked outside!")
         closeBackerWindow()
     });
 });
 
 function openSign() {
     if (document.body.clientWidth > 650) {
+        document.querySelector('.container').style.animation = `showAnim 0s ease forwards`;
+        document.querySelector('.sign-container').style.animation = `opacityAnim 0s ease forwards`;
         signContainer.style.display = 'flex';
-        //document.querySelector('.container').style.animation = 'showAnim 0.5s ease forwards';
         document.body.style.overflow = "hidden";
         document.body.style.height = "100%";
-        console.log(burger.style)
-        if (burger.style.display != 'block' && document.body.clientWidth < 650) {
-            nav.style.transform = 'translateX(-100%)'
-            burger.classList.toggle('toggle');
-        }
+        //console.log(burger.style)
     } else {
         window.location.href="/sign";
     }
@@ -300,3 +299,22 @@ const navSlide = () => {
 };
 
 navSlide();
+
+
+/* change svg color
+$(function () {
+    $("img.svg").each(function () {
+      var $img = jQuery(this);
+      var attributes = $img.prop("attributes");
+      var imgURL = $img.attr("src");
+      $.get(imgURL, function (data) {
+        var $svg = $(data).find('svg');
+        $svg = $svg.removeAttr('xmlns:a');
+        $.each(attributes, function() {
+          $svg.attr(this.name, this.value);
+        });
+        $img.replaceWith($svg);
+      });
+    });
+});
+*/

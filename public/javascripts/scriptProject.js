@@ -12,13 +12,13 @@ const closeButton = document.querySelector('.check-cf')
 let pricesList = [5, 25, 75, 200]
 
 if (window.performance) {
-    console.info("window.performance works fine on this browser");
-    console.info(performance.navigation.type);
+    //console.info("window.performance works fine on this browser");
+    //console.info(performance.navigation.type);
     if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
-        console.info( "This page is reloaded" );
+        //console.info( "This page is reloaded" );
         backTomain()
     } else {
-        console.info( "This page is not reloaded");
+        //console.info( "This page is not reloaded");
     }
 }
 
@@ -33,7 +33,7 @@ function backTomain() {
 pastilContainerView.forEach((element, index) => {
     element.addEventListener('click', () => {
         if (pastilIndicator[index].classList.contains('toggle-indicator')) {
-            console.log('already toggle')
+            //console.log('already toggle')
             //toggleOff(index)
         } else {
             pastilIndicator.forEach((pastil, pindex) => {
@@ -64,20 +64,20 @@ function toggleOff(pindex) {
     pastilIndicator[pindex].classList.toggle('toggle-indicator')
     pastilContainerView[pindex].classList.toggle('toggle-border')
     vlViewTextField[pindex].classList.toggle('toggle-indicator')
-    console.log('removed', pindex)
+    //console.log('removed', pindex)
 };
 
 function toggleOn(index) {
     pastilIndicator[index].classList.toggle('toggle-indicator')
     pastilContainerView[index].classList.toggle('toggle-border')
     vlViewTextField[index].classList.toggle('toggle-indicator')
-    console.log('clicked', index)
+    //console.log('clicked', index)
 };
 
 function PLInpute() {
     pledgeInput.forEach((element, index) => {
         if (element === document.activeElement) {
-            console.log('Element has focus!');
+            //console.log('Element has focus!');
             if (!isNaN(element.value)) {
                 msPrice[index].innerHTML = element.value
                 if (element.value == "") {
@@ -85,7 +85,7 @@ function PLInpute() {
                 }
             }
         } else {
-            console.log(`Element is not focused.`);
+            //console.log(`Element is not focused.`);
         }
     });
 };
@@ -94,7 +94,7 @@ document.addEventListener("keyup", function(event) {
     if (event.key === 'Enter') {
         pledgeInput.forEach((element, index) => {
             if (element === document.activeElement) {
-                console.log('Element has focus!');
+                //console.log('Element has focus!');
                 if (isNaN(element.value)) {
                     element.value = ""
                 } else {
@@ -102,7 +102,7 @@ document.addEventListener("keyup", function(event) {
                     element.value = ""
                 }
             } else {
-                console.log('Element is not focused.');
+                //console.log('Element is not focused.');
             }
         });
     }
@@ -111,20 +111,20 @@ document.addEventListener("keyup", function(event) {
 function checkPriceValue(value, index) {
     switch (index) {
         case 0:
-            console.log('current index 1', index)
-            console.log('no limit', value)
+            //console.log('current index 1', index)
+            //console.log('no limit', value)
             msPrice[index].innerHTML = value;
             break;
         case 1:
-            console.log('current index 2', index)
+            //console.log('current index 2', index)
             testValue(value, 25, index)
             break;
         case 2:
-            console.log('current index 3', index)
+            //console.log('current index 3', index)
             testValue(value, 75, index)
             break;
         case 3:
-            console.log('current index 4', index)
+            //console.log('current index 4', index)
             testValue(value, 200, index)
             break;
         default:
@@ -134,7 +134,7 @@ function checkPriceValue(value, index) {
 
 function testValue(value, minValue, index) {
     if (value >= minValue) {
-        console.log(`upper than ${minValue}`, value)
+        //console.log(`upper than ${minValue}`, value)
         msPrice[index].innerHTML = value;
         removeInputClass(index)
     } else {

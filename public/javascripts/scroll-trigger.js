@@ -15,7 +15,7 @@ function loop() {
 
     Array.prototype.forEach.call(elementsToShow, function(element) {
         if (isElementInViewport(element)) {
-            element.style.animation = `pb-entry-animation 3s ease forwards`;
+            element.style.animation = `pb-entry-animation 1.5s ease forwards`;
         //setTimeout(() => { element.classList.add('pb-isvisible'); }, 3000);
         }
     });
@@ -24,7 +24,7 @@ function loop() {
         if (isElementInViewport(element)) {
             if (!didShown) {
                 infoNums.forEach((e, i) => {
-                    animateValue(e, 0, numbers[i], 1500 , i);
+                    animateValue(e, 0, numbers[i], 1000 , i);
                 });
                 didShown = true
             }
