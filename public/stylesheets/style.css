@@ -915,6 +915,10 @@ span p {
         font-size: 0.7em;
         font-weight: 300;
     }
+
+    .ms-vl-r {
+        width: 60%;
+    }
 }
 
 @media (max-width: 320px) {
