@@ -55,7 +55,6 @@ finishButton.forEach((element) => {
 });
 
 backerButton.addEventListener('click', () => {
-    window.scroll(0, 0)
     if (document.body.clientWidth > 650) {
         if (backerView.style.display == '' || backerView.style.display == 'none') {
             backerView.style.display = 'flex'
