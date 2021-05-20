@@ -53,12 +53,16 @@ finishButton.forEach((element) => {
 
 backerButton.addEventListener('click', () => {
     window.scroll(0, 0)
-    if (backerView.style.display == '' || backerView.style.display == 'none') {
-        backerView.style.display = 'flex'
-        setTimeout(() => { 
-            document.body.style.height = "100%"
-            document.body.style.overflow = "hidden";
-        }, 500);
+    if (document.body.clientWidth > 650) {
+        if (backerView.style.display == '' || backerView.style.display == 'none') {
+            backerView.style.display = 'flex'
+            setTimeout(() => { 
+                document.body.style.height = "100%"
+                document.body.style.overflow = "hidden";
+            }, 500);
+        }
+    } else {
+        window.location.href="/users";
     }
 });
 
