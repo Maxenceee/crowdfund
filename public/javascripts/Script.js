@@ -40,6 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
     checkForScreenSize()
 });
 
+$(document).ready(function(){
+    $(this).scrollTop(0);
+});
+
 finishButton.forEach((element) => {
     element.addEventListener('click', () => {
         if (document.querySelector('.bg-modal').style.display == '' || document.querySelector('.bg-modal').style.display == 'none') {
