@@ -246,10 +246,11 @@ span p {
 
 .inside-pb {
     position: relative;
-    width: 60%;
+    width: 0%;
     height: 100%;
     border-radius: 20px;
     background-color: #3AB5AE;
+    will-change: width;
 }
 
 .s2-tp h1 {
@@ -953,8 +954,15 @@ span p {
     border: solid 2px #3AB5AE;
 }
 
+.inside-pb.pb-isvisible {
+    width: 60%;
+}
 
-
+@keyframes pb-entry-animation {
+    100% {
+        width: 60%;
+    }
+}
 
 
 /*
