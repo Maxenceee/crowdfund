@@ -17,19 +17,14 @@ function loop() {
         if (isElementInViewport(element)) {
             element.style.animation = `pb-entry-animation 1.5s ease forwards`;
         //setTimeout(() => { element.classList.add('pb-isvisible'); }, 3000);
+        if (!didShown) {
+            infoNums.forEach((e, i) => {
+                setTimeout(() => { animateValue(e, 0, numbers[i], 1000 , i); }, 500);
+            });
+            didShown = true
+        }
         }
     });
-
-    Array.prototype.forEach.call(elementsTrigger, function(element) {
-        if (isElementInViewport(element)) {
-            if (!didShown) {
-                infoNums.forEach((e, i) => {
-                    animateValue(e, 0, numbers[i], 1000 , i);
-                });
-                didShown = true
-            }
-        }
-    })
 
     scroll(loop);
 }
