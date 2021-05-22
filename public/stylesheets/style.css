@@ -904,6 +904,11 @@ span p {
         width: 100%;
     }
 
+    .ms-body {
+        height: 160vh;
+        margin-bottom: 20%;
+    }
+
     .nav-links{
         z-index: 100;
         position: absolute;
