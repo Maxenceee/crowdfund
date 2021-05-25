@@ -22,6 +22,10 @@ if (window.performance) {
     }
 }
 
+$(document).ready(function(){
+    $(this).scrollTop(0);
+});
+
 document.querySelector('.close-button').addEventListener('click', () => {
     backTomain()
 })

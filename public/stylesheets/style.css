@@ -3,7 +3,7 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: 0;
+    box-sizing: border-box;
     font-family: Marianne, sans-serif;
 }
 
@@ -19,6 +19,7 @@ body {
 span {
     cursor: pointer;
 }
+
 span p {
     cursor: pointer;
     -webkit-user-select: none;  
@@ -913,7 +914,7 @@ span p {
         z-index: 100;
         position: absolute;
         left: -20%;
-        height: 25vh;
+        height: 35vh;
         top: 0;
         background-color: #3AB5AE;
         display: flex;
@@ -1229,7 +1230,7 @@ form.sign-up-form {
     outline: none;
     border-radius: 49px;
     cursor: pointer;
-    background-color: #3AB5AE;
+    background-color: #3ab5af;
     color: #fff;
     text-transform: uppercase;
     font-weight: 600;
@@ -1237,7 +1238,7 @@ form.sign-up-form {
     transition: .5s;
 }
 
-.btn:hover {
+.hovering:hover {
     background-color: #4d84e2;
 }
 

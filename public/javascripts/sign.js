@@ -37,6 +37,12 @@ if (window.performance) {
     }
 }
 
+$(document).ready(function(){
+    $(this).scrollTop(0);
+    signup_btn.style.opacity = "0.5";
+    login_btn.style.opacity = "0.5";
+});
+
 function backTomain() {
     window.location.href="/#";
 }
@@ -101,9 +107,27 @@ function SIUInpute() {
             //console.log('Element has focus!');
             switch (isSignUp) {
                 case true:
-                    wrongIndicator[1].style.display = 'none'
+                    if (wrongIndicator[1].style.display != 'none') {
+                        wrongIndicator[1].style.display = 'none'
+                    }
+                    if (!checkForEmptyField(usernames_field_S) && !checkForEmptyField(password_field_S) && !checkForEmptyField(password_field_S)) {
+                        signup_btn.style.opacity = "1";
+                        signup_btn.classList.add('hovering')
+                    } else {
+                        signup_btn.style.opacity = "0.5";
+                        signup_btn.classList.remove('hovering')
+                    }
                 case false:
-                    wrongIndicator[0].style.display = 'none'
+                    if (wrongIndicator[0].style.display != 'none') {
+                        wrongIndicator[0].style.display = 'none'
+                    }
+                    if (!checkForEmptyField(usernames_field) && !checkForEmptyField(password_field)) {
+                        login_btn.style.opacity = "1";
+                        login_btn.classList.add('hovering')
+                    } else {
+                        login_btn.style.opacity = "0.5";
+                        login_btn.classList.remove('hovering')
+                    }
             }
         } else {
             //console.log('Element is not focused.');
@@ -112,13 +136,24 @@ function SIUInpute() {
 }
 
 login_btn.addEventListener('click', () => {
-    signinUser()
+    if (!checkForEmptyField(usernames_field) && !checkForEmptyField(password_field)) {
+        signinUser()
+    }
 })
 
 signup_btn.addEventListener('click', () => {
     //console.log("u:", usernames_field_S.value, "p:", password_field_S.value, "e:", email_field.value)
-    signupUser()
+    if (!checkForEmptyField(usernames_field_S) && !checkForEmptyField(password_field_S) && !checkForEmptyField(password_field_S)) {
+        signupUser()
+    }
 })
+
+function checkForEmptyField(textfield) {
+    if (textfield.value === null || textfield.value === "") {
+        return true
+    }
+    return false
+}
 
 function signinUser() {
     for (var i in usernames) {
