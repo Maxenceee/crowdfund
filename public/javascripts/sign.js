@@ -43,10 +43,6 @@ $(document).ready(function(){
     login_btn.style.opacity = "0.5";
 });
 
-function backTomain() {
-    window.location.href="/#";
-}
-
 document.onreadystatechange = () => {
     if (document.readyState === 'complete') {
       //console.log("juste appear")
@@ -234,10 +230,18 @@ String.prototype.hashCode = function() {
 };
 
 function closeSign() {
-    container.classList.remove("sign-up-mode");
-    clearTextflied()
-    document.querySelector('.sign-container').style.display = 'none'
-    document.body.style.overflow = "initial";
+    setTimeout(() => { 
+        container.classList.remove("sign-up-mode");
+        clearTextflied()
+        document.querySelector('.sign-container').style.display = 'none'
+        document.body.style.overflow = "initial";
+    }, 500);
+}
+
+function backTomain() {
+    setTimeout(() => { 
+        window.location.href="/#";
+    }, 500);
 }
 
 function ValidateEmail(mail) {
