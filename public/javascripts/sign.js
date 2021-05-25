@@ -235,13 +235,13 @@ function closeSign() {
         clearTextflied()
         document.querySelector('.sign-container').style.display = 'none'
         document.body.style.overflow = "initial";
-    }, 500);
+    }, 100);
 }
 
 function backTomain() {
     setTimeout(() => { 
         window.location.href="/#";
-    }, 500);
+    }, 100);
 }
 
 function ValidateEmail(mail) {
